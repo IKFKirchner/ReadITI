@@ -141,28 +141,36 @@ def dir_processor(src_dir: str, dst_dir: str, verbose=True) -> None:
     Verbose prints the length of src_file, the number of tokens, and
     the number of sentences.
     """
-
     for root, dirs, files in os.walk(src_dir, topdown=False):
         for name in files:
-            _, text = get_content(os.path.join(root, name))
-            cleaned = cleaner(text)
-            sentences = sentencizer(cleaned)
-            indexed = indexizer(sentences)
+            if name.endswith('.txt'):
+                file_path = os.path.join(root, name)
+                try:
+                    _, text = get_content(file_path)
+                    cleaned = cleaner(text)
+                    sentences = sentencizer(cleaned)
+                    indexed = indexizer(sentences)
             
-            if verbose:
-                print(name)
-                print(f"length original: {len(text.split())}")
-                print(f"number of sentences: {len(sentences)}")
-                count_new_line = cleaned.count('\n\n')
-                print(f"number of tokens: {len(cleaned) - count_new_line}")
+                    if verbose:
+                        print(name)
+                        print(f"length original: {len(text.split())}")
+                        print(f"number of sentences: {len(sentences)}")
+                        count_new_line = cleaned.count('\n\n')
+                        print(f"number of tokens: {len(cleaned) - count_new_line}")
 
-            with open(os.path.join(dst_dir, name.replace('.txt', '_tokens.txt')), 'w') as new_file:
-                # Convert hashtags into newlines to mark sentence boundaries
-                out = '\n'.join(cleaned).replace('#', '')
-                new_file.write(re.sub('\n{3,}', '\n\n', out))
+                    with open(os.path.join(dst_dir, name.replace('.txt', '_tokens.txt')), 'w') as new_file:
+                    # Convert hashtags into newlines to mark sentence boundaries
+                        out = '\n'.join(cleaned).replace('#', '')
+                        new_file.write(re.sub('\n{3,}', '\n\n', out))
             
-            with open(os.path.join(dst_dir, name.replace('.txt', '_sentences.txt')), 'w') as new_file:
-                new_file.write('\n'.join(sentences))
+                    with open(os.path.join(dst_dir, name.replace('.txt', '_sentences.txt')), 'w') as new_file:
+                        new_file.write('\n'.join(sentences))
+
+
+                except UnicodeDecodeError:
+                    print(f"Error processing '{name}': UnicodeDecodeError")
+                except Exception as e:
+                    print(f"Error processing '{name}': {e}")
 
             df_indexed = pd.DataFrame(list(chain.from_iterable(indexed)))
             df_indexed.to_csv(os.path.join(dst_dir, name.replace('.txt', '_doc.tsv')), sep="\t")
