@@ -1,6 +1,7 @@
-# Why ReadITI
+# What is ReadITI?
 
-ReadITI is designed to prepare texts from the OpenITI corpus for Natural Language Processing (NLP). You can download OpenITI at [Zenodo](https://doi.org/10.5281/zenodo.6808108). If you use it, be sure to cite
+ReadITI is a code created by Dr. Maroussia Bednarkiewicz with some minor changes by me to adapt it for Mac users (see more below.) It is designed to prepare texts from the OpenITI corpus for Natural Language Processing (NLP).
+You can download OpenITI at [Zenodo](https://doi.org/10.5281/zenodo.6808108). If you use it, be sure to cite
 
  > Nigst, Lorenz, Romanov, Maxim, Savant, Sarah Bowen, Seydi, Masoumeh, & Verkinderen, Peter. (2022). OpenITI: a Machine-Readable Corpus of Islamicate Texts (2022.1.6) [Data set]. Zenodo. 
 
