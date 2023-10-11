@@ -1,6 +1,10 @@
-# What is ReadITI?
+# What is ReadITI_Mac?
 
-ReadITI is a code created by Dr. Maroussia Bednarkiewicz with some minor changes by me to adapt it for Mac users (see more below.) It is designed to prepare texts from the OpenITI corpus for Natural Language Processing (NLP).
+ReadITI_Mac is an adaption of [ReadITI] (https://github.com/Maroussia/readiti) by Dr. Maroussia B. with some minor changes by me to adapt it for Mac users. These changes address the fact that hidden files in Macbook folders frequently disrupt the proper functioning of code and, in this case, do not allow for ReadITI to run on a folder of .txt files. 
+
+# On ReadITI
+
+ReadITI is designed to prepare texts from the OpenITI corpus for Natural Language Processing (NLP).
 You can download OpenITI at [Zenodo](https://doi.org/10.5281/zenodo.6808108). If you use it, be sure to cite
 
  > Nigst, Lorenz, Romanov, Maxim, Savant, Sarah Bowen, Seydi, Masoumeh, & Verkinderen, Peter. (2022). OpenITI: a Machine-Readable Corpus of Islamicate Texts (2022.1.6) [Data set]. Zenodo. 
