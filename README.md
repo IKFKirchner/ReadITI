@@ -1,6 +1,6 @@
 # What is ReadITI_Mac?
 
-ReadITI_Mac is an adaption of [ReadITI] (https://github.com/Maroussia/readiti) by Dr. Maroussia B. with some minor changes by me to adapt it for Mac users. These changes address the fact that hidden files in Macbook folders frequently disrupt the proper functioning of code and, in this case, do not allow for ReadITI to run on a folder of .txt files. 
+ReadITI_Mac is an adaption of ReadITI (https://github.com/Maroussia/readiti) by Dr. Maroussia B. with some minor changes by me to adapt it for Mac users. These changes address the fact that hidden files in Macbook folders frequently disrupt the proper functioning of code and, in this case, do not allow for ReadITI to run on a folder of .txt files. Specifically, I modified the dir_processor function to handle files more robustly so that it now checks whether each file is a valid text file before attempting to process it. It uses the os.path.isfile function to determine if a file exists and is not a directory, and then check its extension to ensure it's a .txt file. 
 
 # On ReadITI
 
